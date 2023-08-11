@@ -10,7 +10,7 @@ export class ProductService {
 
   private host = 'localhost';
   private port = 8080;
-  private baseUrl: string = 'http://' + this.host + ':' + this.port + '/api/products';
+  private baseUrl: string = 'http://' + this.host + ':' + this.port + '/api/products?size=100';
 
   constructor(private httpClient: HttpClient) {}
 
