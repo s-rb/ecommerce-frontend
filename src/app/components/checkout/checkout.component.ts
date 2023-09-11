@@ -4,6 +4,7 @@ import {ShopFormService} from "../../services/shop-form.service";
 import {Country} from "../../common/country";
 import {State} from "../../common/state";
 import {CustomValidators} from "../../validators/custom-validators";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-checkout',
@@ -25,11 +26,14 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
 
   constructor(private formBuilder: FormBuilder,
-              private shopFormService: ShopFormService) {
+              private shopFormService: ShopFormService,
+              private cartService: CartService) {
     this.checkoutFormGroup = this.getCheckoutFormGroup();
   }
 
   ngOnInit(): void {
+    this.reviewCartDetails();
+
     this.checkoutFormGroup = this.getCheckoutFormGroup();
 
     // populate credit card months
@@ -187,6 +191,18 @@ export class CheckoutComponent implements OnInit {
         // select first item by default
         formGroup?.patchValue({state: data[0]});
       }
+    );
+  }
+
+  private reviewCartDetails() {
+    // subscribe to cartService.totalQuantity
+    this.cartService.totalQuantity.subscribe(
+      totalQuantity => this.totalQuantity = totalQuantity
+    );
+
+    // subscribe to cartService.totalPrice
+    this.cartService.totalPrice.subscribe(
+      totalPrice => this.totalPrice = totalPrice
     );
   }
 }
