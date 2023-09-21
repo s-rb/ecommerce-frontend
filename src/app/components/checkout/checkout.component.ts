@@ -32,7 +32,7 @@ export class CheckoutComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  email: string = '';
+  theEmail: string = '';
 
   constructor(private formBuilder: FormBuilder,
               private shopFormService: ShopFormService,
@@ -47,7 +47,7 @@ export class CheckoutComponent implements OnInit {
 
     // read the user's email address from browser storage
     const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
-    this.email = theEmail;
+    this.theEmail = theEmail;
 
     this.checkoutFormGroup = this.getCheckoutFormGroup();
 
@@ -86,7 +86,7 @@ export class CheckoutComponent implements OnInit {
           [Validators.required, Validators.minLength(2), CustomValidators.notOnlyWhitespace]),
         lastName: new FormControl('',
           [Validators.required, Validators.minLength(2), CustomValidators.notOnlyWhitespace]),
-        email: new FormControl(this.email,
+        email: new FormControl(this.theEmail,
           [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,8}$')])
       }),
       shippingAddress: this.formBuilder.group({
