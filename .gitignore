@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+*.png
 
 # Node
 /node_modules
@@ -40,3 +41,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/ssl-localhost/localhost.crt
+/ssl-localhost/localhost.key
