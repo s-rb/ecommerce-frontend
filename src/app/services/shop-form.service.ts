@@ -10,8 +10,8 @@ import {environment} from "../../environments/environment";
 })
 export class ShopFormService {
 
-  private countriesUrl = environment.luv2shopApiUrl + '/countries';
-  private statesUrl = environment.luv2shopApiUrl + '/states';
+  private countriesUrl = environment.backendApiUrl + '/countries';
+  private statesUrl = environment.backendApiUrl + '/states';
 
   constructor(private httpClient: HttpClient) { }
 

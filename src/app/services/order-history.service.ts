@@ -9,7 +9,7 @@ import {environment} from "../../environments/environment";
 })
 export class OrderHistoryService {
 
-  private orderUrl = environment.luv2shopApiUrl + '/orders';
+  private orderUrl = environment.backendApiUrl + '/orders';
 
   constructor(private httpClient: HttpClient) {
   }

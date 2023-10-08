@@ -10,8 +10,8 @@ import {environment} from "../../environments/environment";
 })
 export class ProductService {
 
-  private baseUrl: string = environment.luv2shopApiUrl + '/products';
-  private categoryUrl = environment.luv2shopApiUrl + '/product-category';
+  private baseUrl: string = environment.backendApiUrl + '/products';
+  private categoryUrl = environment.backendApiUrl + '/product-category';
 
   constructor(private httpClient: HttpClient) {}
 
